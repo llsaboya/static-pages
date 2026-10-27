@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mindsmith · Template Visual Reference · V4R1</title>
+<meta name="version" content="V4R1">
+<style>
+:root{--ink:#1A1A1A;--part:#2B4A6F;--rule:#D0D4DA;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--ratio:1fr 1fr}
+*{box-sizing:border-box}
+body{margin:0;background:#E9EAEE;color:var(--ink);font:16px/24px var(--sans)}
+.wrap{max-width:980px;margin:0 auto;padding:24px 16px 80px}
+h1.top{font:700 28px/36px var(--serif);margin:8px 0}
+.tools{position:sticky;top:0;z-index:5;background:#E9EAEE;padding:10px 0;border-bottom:1px solid var(--rule);display:flex;gap:18px;flex-wrap:wrap;align-items:center;font-weight:600}
+.tools label{cursor:pointer}.tools a{color:var(--ink)}
+h2.tpl{font:700 22px/30px var(--serif);margin:56px 0 4px}
+.spec{margin:0 0 16px;font-size:14px;color:#3B4048}
+.page{background:#fff;border:1px solid var(--rule);padding:32px 40px 40px}
+@media(max-width:700px){.page{padding:20px 14px}}
+.row{display:grid;gap:24px;margin:0 0 24px;grid-template-columns:1fr}
+.r2{grid-template-columns:var(--ratio)}.r3{grid-template-columns:repeat(3,1fr)}.r4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:700px){.r2,.r3,.r4{grid-template-columns:1fr}}
+@media(min-width:701px) and (max-width:860px){.r4{grid-template-columns:repeat(2,1fr)}}
+.t{position:relative;min-width:0}
+.show .t{outline:1px dashed #8A93A0;outline-offset:6px}
+.show .t::before{content:attr(data-t);position:absolute;right:0;top:-18px;font:600 11px/16px var(--sans);background:var(--ink);color:#fff;padding:0 6px;z-index:2}
+.show .row::after{content:none}
+.run{font:600 13px/20px var(--sans);border-bottom:2px solid var(--ink);padding-bottom:6px;display:flex;justify-content:space-between;gap:12px}
+.banner{background:var(--part);color:#fff;padding:14px 20px;font:700 14px/20px var(--sans);letter-spacing:.04em}
+.banner.pause{background:#4A5568}
+h1.pr{font:700 32px/40px var(--serif);margin:0}
+h2.cl{font:700 24px/32px var(--serif);margin:24px 0 0;max-width:30em}
+h3.h{font:700 18px/28px var(--serif);margin:0 0 4px}
+.sp p,.sp li{font:18px/28px var(--serif);margin:0}
+.sp ol{margin:0;padding-left:22px}
+.meta{font:14px/20px var(--sans);border-left:3px solid var(--ink);padding-left:12px;margin:0}
+.co{padding:16px 20px;font:16px/24px var(--sans);height:100%}
+.co b.l{display:block;font:700 12px/16px var(--sans);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.co p{margin:0}
+.def{background:#EAF2FB;border-left:4px solid #2B6CB0}
+.cou{background:#FDF3E1;border-left:4px solid #B7791F}
+.ask{background:#E8F5EC;border-left:4px solid #2F855A}
+.take{background:#F2F2F2;border-top:3px solid var(--ink)}
+.quo{border-left:2px solid #6B7280;font-style:italic}.quo small{display:block;margin-top:6px;font:12px/16px var(--sans);font-variant:small-caps;font-style:normal}
+.dep{background:#F7F7F9;border:1px solid var(--rule)}
+textarea{width:100%;margin-top:10px;min-height:64px;font:15px var(--sans);border:1px solid #9BC4AB;padding:8px;resize:vertical;background:#fff}
+.fig{border:1px solid var(--rule);padding:16px;margin:0}
+.fig figcaption{font:14px/20px var(--sans);margin-top:10px}
+.cap{font:700 12px/16px var(--sans);margin:10px 0 4px}
+.bar{display:flex;height:40px;border:2px solid var(--ink);font:600 12px/36px var(--sans);overflow:hidden}
+.bar span{padding:0 8px;white-space:nowrap;overflow:hidden}
+.bi{background:#3C4A5C;color:#fff}.be{background:repeating-linear-gradient(45deg,#E7C98B,#E7C98B 6px,#F3E2BD 6px,#F3E2BD 12px)}
+.bg{background:#8FA3BF}.bf{background:#fff;border-left:2px dashed var(--ink);color:#3B4048}
+.proc{list-style:none;margin:0;padding:0;display:grid;gap:8px;counter-reset:s}
+.proc li{counter-increment:s;display:grid;grid-template-columns:32px 1fr;gap:12px;padding:10px 12px;border:1px solid var(--rule);font:15px/22px var(--sans)}
+.proc li::before{content:counter(s);font:700 18px/24px var(--serif)}
+.proc b{display:block}.proc span{font-size:14px;color:#3B4048}
+.path{border:1px solid var(--ink);padding:12px 14px;height:100%;font:14px/20px var(--sans)}.path b{display:block;font-size:15px;margin-bottom:4px}
+.fc{min-height:104px;height:100%;border:1px solid var(--ink);padding:12px 14px;background:#fff;cursor:pointer;text-align:left;font:15px/22px var(--sans);width:100%}
+.fc .bk{display:none}.fc.on{background:#F7F7F9}.fc.on .ft{display:none}.fc.on .bk{display:block}
+.fc .ft{font-weight:700}.fc i{display:block;font:11px/16px var(--sans);font-style:normal;color:#3B4048;margin-top:6px}
+details.m{border-left:4px solid;font:15px/22px var(--sans);height:100%}
+details.m summary{padding:10px 36px 10px 14px;cursor:pointer;font:700 12px/16px var(--sans);letter-spacing:.08em;text-transform:uppercase;position:relative;list-style:none}
+details.m summary::-webkit-details-marker{display:none}
+details.m summary::after{content:"+";position:absolute;right:14px;top:8px;font-size:18px}
+details.m[open] summary::after{content:"\2212"}
+details.m div{padding:0 14px 12px}
+.d{border-color:#2B6CB0;background:#EAF2FB}.c{border-color:#B7791F;background:#FDF3E1}.q{border-color:#6B7280}
+.vis{border:1px dashed var(--ink);height:100%;min-height:120px;display:flex;align-items:center;justify-content:center;font:13px/18px var(--sans);text-align:center;padding:12px;background:#F7F7F9}
+.note{font-size:13px;color:#3B4048;margin-top:12px}
+
+.lb{display:none}.labels .lb{display:block}
+.nt{padding:16px 20px;height:100%;font:16px/24px var(--sans)}.nt p{margin:0}
+.c-def{background:#EAF2FB}.c-cou{background:#FDF3E1}.c-dep{background:#F7F7F9;border:1px solid var(--rule)}.c-des{background:#E2E8F0}.c-ask{background:#E8F5EC}
+.qt{padding:12px 18px;height:100%;border-left:3px solid #6B7280;font:italic 16px/24px var(--sans)}.qt small{display:block;margin-top:6px;font:600 12px/16px var(--sans);font-style:normal;font-variant:small-caps}
+.qt.c-cou{border-left-color:#B7791F}
+.ph{border:2px dashed #6B7280;background:#E5E7EB;display:flex;align-items:center;justify-content:center;text-align:center;font:600 13px/18px var(--sans);color:#374151;padding:8px}
+.ph-p{aspect-ratio:16/9;max-height:240px}.ph-r{aspect-ratio:3/4;max-width:200px}
+.dl{border:1px solid var(--ink);padding:10px 16px;font:600 14px var(--sans);display:inline-block}
+.hint{font-size:13px;color:#3B4048;margin:8px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap" id="root">
+  <h1 class="top">Mindsmith · Template Visual Reference · V4R1</h1>
+  <p>Lines A1–A7, B1–B11, C1–C7, and D1–D8 of General Framework v4 (Configuration B: three Spine blocks). The function of each margin item is indicated by form: voice (quote with attribution), question (closed accordion), and note (unlabeled). Color acts solely as secondary reinforcement. Sample text abbreviated.</p>
+  
+  <div class="tools">
+    <label><input type="checkbox" id="tn"> Tile Names</label>
+    <label><input type="checkbox" id="lbl"> Function Labels (LABELS: YES)</label>
+    <label><input type="checkbox" id="rt"> Columns 2:1</label>
+    <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a>
+  </div>
+
+  <!-- TEMPLATE A -->
+  <h2 class="tpl" id="A">Template A: Opening (A1 to A7)</h2>
+  <p class="spec">Anchor case, section map, four entry pathways.</p>
+  <div class="page sp">
+    <div class="row">
+      <div class="t" data-t="A1 Banner"><div class="banner">MODULE 3 · PART 2 · How the Professional Processes Information</div></div>
+    </div>
+    <div class="row r2">
+      <div class="t" data-t="A2 H1"><h1 class="pr">By the end, you will design a UI layout that reduces working memory load.</h1></div>
+      <div class="t" data-t="A2 Note (shape legend)">
+        <div class="nt c-dep">
+          <b class="l lb">HOW THIS MODULE WORKS</b>
+          <p>The main text presents the full argument. Side notes are optional. Voice: quote with author. Question: closed accordion. Note: short unlabeled text. The Practice element on every page is mandatory.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="A3 Anchor Case + Response">
+        <div class="nt c-dep"><b class="l lb">ANCHOR CASE</b><p>[Example] A team redesigns a screen containing five charts and two footer paragraphs. Professionals misread the labels. What should be changed first?</p></div>
+        <div class="nt c-ask"><b class="l lb">INITIAL DECISION</b><p>What is your initial decision?</p><textarea placeholder="Optional. Graded manually." aria-label="Response"></textarea></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="A4 Process">
+        <ol class="proc">
+          <li><div><b>3.1 Three Types of Load</b><span>Which cognitive load does the project control?</span></div></li>
+          <li><div><b>3.2 Presentation Effects</b><span>When does the interface split attention?</span></div></li>
+          <li><div><b>3.3 Application</b><span>How to reduce load without severing context?</span></div></li>
+          <li><div><b>P and S</b><span>Intermediate application & Action Plan</span></div></li>
+        </ol>
+      </div>
+    </div>
+    <div class="row r2">
+      <div class="t" data-t="A5 Core Questions">
+        <h3 class="h">Core Questions</h3>
+        <ol><li>Which load does the project control?</li><li>When does the interface split attention?</li></ol>
+      </div>
+      <div class="t" data-t="A5 Open Response">
+        <div class="nt c-ask"><b class="l lb">PRIOR KNOWLEDGE</b><p>What do you already know about cognitive load?</p><textarea placeholder="Optional. Graded manually." aria-label="Response"></textarea></div>
+      </div>
+    </div>
+    <div class="row r4">
+      <div class="t" data-t="A6 Pathway"><div class="path"><b>Follow the Spine</b>Start at 3.1.</div></div>
+      <div class="t" data-t="A6 Pathway"><div class="path"><b>Start with a Question</b>Go to the question page.</div></div>
+      <div class="t" data-t="A6 Pathway"><div class="path"><b>Start with a Diagram</b>See figure in 3.2.</div></div>
+      <div class="t" data-t="A6 Pathway"><div class="path"><b>Lookup a Term</b>Glossary entry.</div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="A7 Pointer"><p class="meta">Next: 3.1 Three Types of Cognitive Load.</p></div>
+    </div>
+  </div>
+
+  <!-- TEMPLATE B -->
+  <h2 class="tpl" id="B">Template B: Core (B1 to B11)</h2>
+  <p class="spec">Three Spine blocks, Margin, Deep Dive, geometric placeholder figure, Practice with feedback after attempt, job aid.</p>
+  <div class="page sp">
+    <div class="row">
+      <div class="t" data-t="B1 Header Bar"><div class="run"><span>MODULE 3 · N1 · Cognitive Load</span><span>Page 2 of 6</span></div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="B2 H2"><h2 class="cl" style="margin-top:0">Cognitive load is split into intrinsic, extrinsic, and germane effort.</h2></div>
+    </div>
+    <div class="row r2">
+      <div class="t" data-t="B3 S1 Need"><p>[Abbreviated example] The same screen poses different demands for each professional. <b>Intrinsic load</b> stems from the material itself. <b>Extrinsic load</b> stems from presentation. The project directly controls the latter.</p></div>
+      <div class="t" data-t="B3 Note (definition)"><div class="nt c-def"><b class="l lb">DEFINITION · Schema</b><p><b>Schema</b> — a stored mental structure that the professional processes as a single unit.</p></div></div>
+    </div>
+    <div class="row r2">
+      <div class="t" data-t="B4 S2 Satisfaction"><p>An experienced professional retrieves the schema as a single unit. A novice processes every element individually. The same task imposes higher load on novices due to simultaneous unintegrated elements.</p></div>
+      <div class="t" data-t="B4 Voice (counterpoint)"><div class="qt c-cou"><b class="l lb">COUNTERPOINT · de Jong</b>The review questions whether all three loads can be measured independently.<small>— de Jong, 2010</small></div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="B5 Deep Dive"><div class="nt c-dep"><b class="l lb">Split-Attention Effect: The Case of Displaced Labels</b><p>A diagram sits on one screen while its labels reside on another. The professional must hold each label in working memory while scanning for the corresponding component. Place each label directly adjacent to its element.</p></div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="B6 Figure (MEDIA)"><div class="ph ph-p">LANDSCAPE-PLACEHOLDER<br>FIG · N1 · B6 · SME-S01-02-1</div><p class="hint">Caption: Which load fits into working memory? Intrinsic and extrinsic loads add up.</p></div>
+    </div>
+    <div class="row r2">
+      <div class="t" data-t="B7 S3 Visualization"><p>By overlaying labels directly onto the diagram, split attention is eliminated, freeing up mental capacity to process relationships.</p></div>
+      <div class="t" data-t="B7 Voice (quote)"><div class="qt c-dep"><b class="l lb">CITATION</b>Extrinsic cognitive load is reduced through intentional presentation design.<small>— Author, Work, Year, p. X</small></div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="B8 Practice: Task"><div class="nt c-ask"><b class="l lb">PRACTICE · COMPARE</b><p>Compare Screen A and Screen B across three criteria. Which one minimizes label reading errors?</p><textarea placeholder="Optional. Graded manually." aria-label="Response"></textarea></div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="B9 Practice: Feedback & Job Aid">
+        <details class="m d"><summary>Compare with Reference Answer</summary><div>Screen B places labels directly on the diagram. Split attention drops, reducing reading errors. Criteria: relationship, scale, typography.</div></details>
+        <span class="dl" style="margin-top:10px;">Download Screen Review Checklist (PDF Job Aid)</span>
+      </div>
+    </div>
+    <div class="row r2">
+      <div class="t" data-t="B10 Highlight"><div class="nt c-des"><b class="l lb">HIGHLIGHT</b><p><b>Eliminate extrinsic load first.</b> Target material and prior knowledge establish the baseline.</p></div></div>
+      <div class="t" data-t="B10 Self-Reflection (optional)"><div class="nt c-ask"><b class="l lb">SELF-REFLECTION</b><p>Which element in your layout adds cognitive load without adding value?</p><textarea placeholder="Optional. Graded manually." aria-label="Response"></textarea></div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="B11 Pointer"><p class="meta">Next: 3.2 Presentation Effects.</p></div>
+    </div>
+  </div>
+
+  <!-- TEMPLATE C -->
+  <h2 class="tpl" id="C">Template C: Pause (C1 to C7)</h2>
+  <p class="spec">Intermediate application of anchor case. No new theoretical concepts.</p>
+  <div class="page sp">
+    <div class="row">
+      <div class="t" data-t="C1 Banner"><div class="banner pause">CHECKPOINT · MODULE 3</div></div>
+    </div>
+    <div class="row r2">
+      <div class="t" data-t="C2 So Far"><h3 class="h">So Far</h3><ol><li>Cognitive load divides into three types.</li><li>Instructional design directly controls extrinsic load.</li></ol></div>
+      <div class="t" data-t="C2 Ahead"><div class="nt c-dep"><b class="l lb">LOOKING AHEAD</b><p>Next, you will apply these two principles to the anchor case.</p></div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="C3 Central Figure"><div class="ph ph-p">LANDSCAPE-PLACEHOLDER<br>FIG · P · C3</div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="C4 Case Application"><div class="nt c-ask"><b class="l lb">APPLICATION · DECIDE</b><p>Using Claims 1 and 2, decide what to modify first on the anchor case screen and justify your choice.</p><textarea placeholder="Optional. Graded manually." aria-label="Response"></textarea></div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="C5 Feedback"><details class="m d"><summary>Compare with Reference Answer</summary><div>Relocate labels first, as split attention is an extrinsic load controlled by instructional design. Criteria: decision, rationale, alignment.</div></details></div>
+    </div>
+    <div class="row r4">
+      <div class="t" data-t="C6 Card (optional)"><button class="fc"><span class="ft">Which load is designer-controlled?</span><span class="bk">Extrinsic load.</span><i>Click to reveal</i></button></div>
+      <div class="t" data-t="C6 Card (optional)"><button class="fc"><span class="ft">When does split attention occur?</span><span class="bk">When labels are separated from diagrams.</span><i>Click to reveal</i></button></div>
+      <div class="t" data-t="C6 Card (optional)"><button class="fc"><span class="ft">What is a schema?</span><span class="bk">A pattern stored as a single cognitive unit.</span><i>Click to reveal</i></button></div>
+      <div class="t" data-t="C6 Card (optional)"><button class="fc"><span class="ft">What adds redundant load?</span><span class="bk">Visual elements without instructional purpose.</span><i>Click to reveal</i></button></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="C7 Pointer"><p class="meta">Next: 3.3 Application & Execution.</p></div>
+    </div>
+  </div>
+
+  <!-- TEMPLATE D -->
+  <h2 class="tpl" id="D">Template D: Synthesis (D1 to D8)</h2>
+  <p class="spec">Case re-application, action plan, job aid, margin review, upcoming module preview.</p>
+  <div class="page sp">
+    <div class="row">
+      <div class="t" data-t="D1 Banner"><div class="banner">MODULE 3 · SYNTHESIS</div></div>
+    </div>
+    <div class="row r2">
+      <div class="t" data-t="D2 Core Claims"><h3 class="h">Module Claims</h3><ol><li>Cognitive load is categorized into three types. (N1)</li><li>Instructional Design controls extrinsic load. (N2)</li><li>Reducing load preserves conceptual connections. (N3)</li></ol></div>
+      <div class="t" data-t="D2 Next Module"><div class="nt c-des"><b class="l lb">NEXT MODULE</b><p>Module 4 addresses Multimedia Learning Principles and builds upon split attention. Prerequisite: Module 3.</p></div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="D3 Re-application"><div class="nt c-ask"><b class="l lb">RE-APPLICATION</b><p>Re-evaluate the anchor case with your new insight. How would you revise your initial decision?</p><textarea placeholder="Optional. Graded manually." aria-label="Response"></textarea></div></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="D4 Action Plan"><div class="nt c-ask"><b class="l lb">ACTION PLAN</b><p>Write an actionable improvement plan for your next layout project, including a target deadline.</p><textarea placeholder="Optional. Graded manually." aria-label="Response"></textarea></div><span class="dl" style="margin-top:10px;">Download Screen Review Checklist (PDF Job Aid)</span></div>
+    </div>
+    <div class="row r3">
+      <div class="t" data-t="D5 Accordion"><details class="m d"><summary>N1 Margin Summary</summary><div>Schema definition and working memory capacity.</div></details></div>
+      <div class="t" data-t="D5 Accordion"><details class="m d"><summary>N2 Margin Summary</summary><div>Voice: de Jong, 2010 review.</div></details></div>
+      <div class="t" data-t="D5 Accordion"><details class="m d"><summary>N3 Margin Summary</summary><div>Quote with citation and page reference.</div></details></div>
+    </div>
+    <div class="row r3">
+      <div class="t" data-t="D6 Card"><button class="fc"><span class="ft">Extrinsic Load</span><span class="bk">Driven by layout and presentation.</span><i>Click to reveal</i></button></div>
+      <div class="t" data-t="D6 Card"><button class="fc"><span class="ft">Schema</span><span class="bk">Pattern stored and processed as a unit.</span><i>Click to reveal</i></button></div>
+      <div class="t" data-t="D6 Card"><button class="fc"><span class="ft">Split Attention</span><span class="bk">Labels distanced from target elements.</span><i>Click to reveal</i></button></div>
+    </div>
+    <div class="row r2">
+      <div class="t" data-t="D7 Executive Synthesis"><div class="nt c-ask"><b class="l lb">EXECUTIVE SYNTHESIS</b><p>Explain the core takeaways of this module to a peer in five sentences or fewer.</p><textarea placeholder="Optional. Graded manually." aria-label="Response"></textarea></div></div>
+      <div class="t" data-t="D7 Further Reading"><details class="m q"><summary>Further Reading</summary><div>Author (Year). Work Title. Verify references carefully.</div></details></div>
+    </div>
+    <div class="row">
+      <div class="t" data-t="D8 Cross-References"><p class="meta">See N2: Why split attention increases cognitive load.</p></div>
+    </div>
+  </div>
+
+  <p class="note">Color coding (secondary reinforcement): Definition #EAF2FB, Counterpoint #FDF3E1, Deep Dive #F7F7F9, Highlight #E2E8F0, Practice #E8F5EC. Geometric Placeholders: Landscape 16:9, Square 1:1, Portrait 3:4, Banner 3:1. Validate shapes and colors within Mindsmith options.</p>
+</div>
+
+<script>
+const r=document.getElementById('root');
+document.getElementById('tn').addEventListener('change',e=>r.classList.toggle('show',e.target.checked));
+document.getElementById('rt').addEventListener('change',e=>document.documentElement.style.setProperty('--ratio',e.target.checked?'2fr 1fr':'1fr 1fr'));
+document.querySelectorAll('.fc').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('on')));
+document.getElementById('lbl').addEventListener('change',e=>document.getElementById('root').classList.toggle('labels',e.target.checked));
+</script>
+</body>
+</html>
